@@ -23,7 +23,7 @@ class Car:
     
     def kilometres_available(self):
         """Return the number of kilometers that the car could drive with the current amount of fuel"""
-        return self.fuel * self.litres_per_kilometre
+        return self.fuel / self.litres_per_kilometre
 
 
 # Code to test
@@ -32,4 +32,4 @@ print(c.kilometres_available())
 c.drive(4)
 print(c.kilometres_available())
 c.fill_up()
-print(c.kilometres_available)
+print(c.kilometres_available())
