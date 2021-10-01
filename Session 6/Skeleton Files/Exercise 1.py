@@ -46,7 +46,7 @@ class Enemy(pygame.sprite.Sprite):
         self.y_speed = 0
  
         self.walk_speed = 2
-        self.walk_time = 2000
+        self.walk_time_interval = 2000
  
     def update(self):
         self.move(self.x_speed, self.y_speed)
@@ -57,8 +57,12 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.y += y_change
  
     def walk(self):
-        #TODO: figure out walk
-        ...
+        time = pygame.time.get_ticks()
+
+        if time % self.walk_time_interval < self.walk_time_interval/2 :
+            self.x_speed = self.walk_speed
+        else:
+            self.x_speed = -1 * self.walk_speed
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, x, y):
